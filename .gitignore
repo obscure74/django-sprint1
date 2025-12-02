@@ -128,6 +128,31 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+# IDE files
+.idea/
+.vscode/
+*.code-workspace
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Local History for Visual Studio Code
+.history/
+
+# Django static and media files
+static/
+media/
+/static/
+/blogicum/static/
+
+# Testing
+build_tests/
+yap_testing
+
 # Папки, создаваемые средой разработки
 .idea
 .DS_Store

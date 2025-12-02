@@ -51,11 +51,14 @@ posts_dict = {post['id']: post for post in posts}
 def index(request):
     """
     Отображает гравную страницу с списком постов.
+    
     Посты выводятся в обратном порядке (от последнего к первому).
     """
-    template = 'blog/index.html'
-    context = {'posts': reversed(posts)}
-    return render(request, template, context)
+    return render(
+        request,
+        'blog/index.html',
+        {'posts': reversed(posts)}
+    )
 
 
 def post_detail(request, post_id):
@@ -68,15 +71,12 @@ def post_detail(request, post_id):
     Raises:
         Http404: если пост с указанным ID не найден
     """
-    template = 'blog/detail.html'
-
     post = posts_dict.get(post_id)
 
     if post is None:
         raise Http404(f"Пост с ID {post_id} не найден")
 
-    context = {'post': post}
-    return render(request, template, context)
+    return render(request, 'blog/detail.html', {'post': post})
 
 
 def category_posts(request, category_slug):
@@ -86,6 +86,8 @@ def category_posts(request, category_slug):
     Args:
         category_slug: slug категории для отображения
     """
-    template = 'blog/category.html'
-    context = {'category_slug': category_slug}
-    return render(request, template, context)
+    return render(
+        request,
+        'blog/category.html',
+        {'category_slug': category_slug}
+    )
