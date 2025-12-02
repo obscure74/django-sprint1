@@ -51,7 +51,7 @@ posts_dict = {post['id']: post for post in posts}
 def index(request):
     """
     Отображает гравную страницу с списком постов.
-    
+
     Посты выводятся в обратном порядке (от последнего к первому).
     """
     return render(
